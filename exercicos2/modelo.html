@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <link rel="stylesheet" href="./estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Tabuada</h1>
+    </header>
+    <section>
+        <div id="dados">
+            <p>Número: <input type="number" id="txtn"></p>
+            <p><input type="button" value="Gerar Tabuada" onclick="tabuada()"></p>
+        </div>
+        <div id="res">
+            <select name="tabuada" id="tabuada" size="10">
+                <option>Tabuada</option>
+            </select>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; CursoemVideo</p>
+    </footer>
+
+    <script>
+        function tabuada() {
+            let num = document.getElementById('txtn')
+            let tab = document.getElementById('tabuada')
+            
+            if (num.value.length == 0) {
+                window.alert('Por favor, digite um número!')
+            } else {
+                let n = Number(num.value)
+                let c = 1
+                tab.innerHTML = '' // limpa antes de gerar
+                while (c <= 10) {
+                    let item = document.createElement('option')
+                    item.text = `${n} x ${c} = ${n * c}`
+                    item.value = `tab${c}`
+                    tab.appendChild(item)
+                    c++
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
